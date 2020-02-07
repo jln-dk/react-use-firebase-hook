@@ -1,4 +1,4 @@
-# react-use-firebase
+# react-use-firebase-hook
 
 **React hook for easy integration with Firebase.**
 
@@ -9,10 +9,10 @@ Written in TypeScript.
 
 ```bash
 # Yarn
-yarn add react-use-firebase
+yarn add react-use-firebase-hook
 
 # NPM
-npm install --save react-use-firebase
+npm install --save react-use-firebase-hook
 ```
 
 ## Quick Start
@@ -22,7 +22,7 @@ Wrap your application root with the `<FirebaseProvider>` component.
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { FirebaseProvider, FirebaseConfig } from 'react-use-firebase';
+import { FirebaseProvider, FirebaseConfig } from 'react-use-firebase-hook';
 
 // Provide your Firebase config.
 // Please remember to never commit your secret credentials!
@@ -48,7 +48,7 @@ Simple example:
 
 ```tsx
 import React from 'react';
-import { useFirebase } from 'react-use-firebase';
+import { useFirebase } from 'react-use-firebase-hook';
 
 const MyApp = () => {
   const [firebase, user] = useFirebase();
