@@ -1,5 +1,7 @@
 # react-use-firebase-hook
 
+[![Version](https://img.shields.io/npm/v/react-use-firebase-hook.svg)](https://www.npmjs.com/package/react-use-firebase-hook)
+
 **React hook for easy integration with Firebase.**
 
 Finally an easy and clean way of integrating Firebase into your React web application using the React hooks pattern.  
