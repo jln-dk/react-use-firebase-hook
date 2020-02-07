@@ -1,0 +1,59 @@
+{
+  "name": "react-use-firebase",
+  "version": "0.1.0",
+  "description": "React hook for easy integration with Firebase",
+  "keywords": [
+    "react",
+    "hook",
+    "firebase",
+    "use-firebase"
+  ],
+  "author": "Jesper Lund (https://github.com/jln-dk)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jln-dk/react-use-firebase"
+  },
+  "homepage": "https://github.com/jln-dk/react-use-firebase#readme",
+  "license": "MIT",
+  "module": "dist/react-use-firebase.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "dependencies": {
+    "firebase": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "husky": "^4.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "tsdx": "^0.12.3",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
