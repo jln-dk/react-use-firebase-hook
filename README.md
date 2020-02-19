@@ -34,7 +34,7 @@ const firebaseConfig: FirebaseConfig = {
 
 const App = () => {
   return (
-    <FirebaseProvider config={firebaseConfig} fallback={<div>Loading...</div>}>
+    <FirebaseProvider config={firebaseConfig}>
       <MyApp />
     </FirebaseProvider>
   );
@@ -51,7 +51,7 @@ import React from 'react';
 import { useFirebase } from 'react-use-firebase-hook';
 
 const MyApp = () => {
-  const [firebase, user] = useFirebase();
+  const { firebase, user, loading } = useFirebase();
 
   const onLoginClick = async () => {
     try {
@@ -66,6 +66,10 @@ const MyApp = () => {
   const onLogoutClick = async () => {
     await firebase.auth().signOut();
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -94,21 +98,26 @@ Provider which initializes Firebase and provides it to the rest of your app (usi
 **config: `FirebaseConfig`**  
 Firebase configuration. Required.
 
-**fallback?: `JSX.Element`**  
-Component to show when Firebase is loading. Optional.
-
 ### `useFirebase()`
 
 React hook for accessing the Firebase instance and current user.
 
-**Return type:** `[firebase.app.App, firebase.User | null]`
+**Return type:**
+
+```tsx
+{
+  loading: boolean;
+  firebase: firebase.app.App;
+  user: firebase.User | null;
+}
+```
 
 Usage:
 
 ```tsx
-const [firebase, user] = useFirebase();
+const { loading, firebase, user } = useFirebase();
 ```
 
 ## Contributing
 
-Contributions are definitely welcome!
+Contributions are welcome.

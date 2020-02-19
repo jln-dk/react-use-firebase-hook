@@ -16,22 +16,28 @@ const firebaseConfig: FirebaseConfig = {
 
 const App = () => {
   return (
-    <FirebaseProvider config={firebaseConfig} fallback={<div>Loading...</div>}>
+    <FirebaseProvider config={firebaseConfig}>
       <Router />
     </FirebaseProvider>
   );
 };
 
 const Router = () => {
-  const [, user] = useFirebase();
+  const { loading, user } = useFirebase();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   if (!user) {
     return <LoginForm />;
   }
+
   return <PrivateRoute />;
 };
 
 const LoginForm = () => {
-  const [firebase] = useFirebase();
+  const { firebase } = useFirebase();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -62,7 +68,7 @@ const LoginForm = () => {
 };
 
 const PrivateRoute = () => {
-  const [firebase, user] = useFirebase();
+  const { firebase, user } = useFirebase();
 
   const onLogoutClick = async () => {
     await firebase.auth().signOut();
