@@ -1,6 +1,6 @@
 {
   "name": "react-use-firebase-hook",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "React hook for easy integration with Firebase",
   "keywords": [
     "react",
